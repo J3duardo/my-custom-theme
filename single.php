@@ -89,71 +89,79 @@
                   <div class="card-body">
                     <div class="author-image">
                       <!-- Avatar del autor -->
-                      <img src="<?php echo get_avatar($author_ID, 90, "", false, array("class" => "img-circle")) ?>" class="rounded-circle">
+                      <?php echo get_avatar($author_ID, 90, "", false, array("class" => "img-circle")) ?>
                       <!-- Biografía del autor. Se usa la función nl2br() para hacerla más legible -->
                     </div>
                       <?php echo nl2br(get_the_author_meta("description"))?>
                     </div>
                 </div>
                 <div class="line"></div>
+
+                <!-- Posts relacionados -->
                 <h4>Related Posts:</h4>
                 <div class="related-posts clearfix">
-                  <div class="mpost clearfix">
-                    <div class="entry-image">
-                      <a href="#">
-                        <img src="images/blog/small/10.jpg">
-                      </a>
-                    </div>
-                    <div class="entry-c">
-                      <div class="entry-title">
-                        <h4>
-                          <a href="#">
-                            This is an Image Post
+
+                <?php
+                  $categories = get_the_category();
+                  $query = new WP_Query(array(
+                    // Posts por página
+                    "posts_per_page" => 2,
+                    // Evitar que el posts actual aparezca en los resultados del query
+                    "post__not_in" => array($post->ID),
+                    // Buscar los posts con categorías similares al post actual
+                    "cat" => !empty($categories) ? $categories[0]->term_id : null
+                  ));
+                ?>
+
+                <?php if($query->have_posts()) : ?>
+                  <?php while($query->have_posts()) : ?>
+                    <?php $query->the_post() ?>
+
+                    <!-- Imagen del post relacionado -->
+                    <div class="mpost clearfix">
+                      <?php if(has_post_thumbnail()) : ?>
+                        <div class="entry-image">
+                          <a href="<?php the_permalink()?>">
+                            <?php the_post_thumbnail("thumbnail") ?>
                           </a>
-                        </h4>
-                      </div>
-                      <ul class="entry-meta clearfix">
-                        <li><i class="icon-calendar3"></i> 10th July 2014</li>
-                        <li><i class="icon-comments"></i> 12</li>
-                      </ul>
-                      <div class="entry-content">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Mollitia nisi perferendis.
+                        </div>
+                      <?php endif ?>
+
+                      <!-- Data del post relacionado -->
+                      <div class="entry-c">
+                        <div class="entry-title">
+                          <h4>
+                            <a href="<?php the_permalink()?>"><?php the_title()?></a>
+                          </h4>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                          <li><i class="icon-calendar3"></i> <?php echo get_the_date()?></li>
+                          <li><i class="icon-comments"></i> <?php comments_number("0")?></li>
+                        </ul>
+                        <div class="entry-content"><?php the_excerpt()?></div>
                       </div>
                     </div>
-                  </div>
-                  <div class="mpost clearfix">
-                    <div class="entry-image">
-                      <a href="#"><img src="images/blog/small/20.jpg" alt="Blog Single"></a>
-                    </div>
-                    <div class="entry-c">
-                      <div class="entry-title">
-                        <h4><a href="#">This is a Video Post</a></h4>
-                      </div>
-                      <ul class="entry-meta clearfix">
-                        <li><i class="icon-calendar3"></i> 24th July 2014</li>
-                        <li><i class="icon-comments"></i> 16</li>
-                      </ul>
-                      <div class="entry-content">Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Mollitia nisi perferendis.</div>
-                    </div>
-                  </div>
-                </div>
+                  <?php endwhile ?>
+
+                  <!-- Resetear el loop secundario-->
+                  <?php wp_reset_postdata() ?>
+                <?php endif ?>
     
                 <!-- Sección de comentarios -->
                 <?php
                   if(comments_open() || get_comments_number()) {
                     comments_template();
                   }
-                ?>
-                
+                ?>                
               </div>
+              
             <?php endwhile ?>
           <?php endif ?>
         </div>
-        <!-- Sidebar -->
-        <?php get_sidebar() ?>
       </div>
+      
+      <!-- Sidebar -->
+      <?php get_sidebar() ?>
     </div>
   </section>
 
