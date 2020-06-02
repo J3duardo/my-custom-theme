@@ -6,7 +6,7 @@
 ?>
 
 <div id="comments" class="clearfix">
-  <h3 id="comments-title"><span><?php comments_number("0")?></span></h3>
+  <h3 id="comments-title"><span><?php comments_number()?></span></h3>
 
   <!-- Mostrar comentarios -->
   <ol class="commentlist clearfix">
