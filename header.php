@@ -16,9 +16,9 @@
             <!-- Top Links -->
             <div class="top-links">
               <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="<?php echo site_url('/')?>">Home</a></li>
+                <li><a href="<?php echo site_url('/faq')?>">FAQs</a></li>
+                <li><a href="<?php echo site_url('/contact')?>">Contact</a></li>
               </ul>
             </div>
           </div>
@@ -63,7 +63,7 @@
         <div class="container clearfix">
           <!-- Logo -->
           <div id="logo">
-            <a href="#" class="standard-logo">My Custom Theme</a>
+            <a href="<?php echo site_url('/')?>" class="standard-logo">My Custom Theme</a>
           </div>
           <div class="top-advert">
             <img src="images/magazine/ad.jpg">
