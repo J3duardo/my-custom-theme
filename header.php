@@ -4,7 +4,6 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <?php wp_head() ?>
-    <title><?php bloginfo("title")?></title>
   </head>
 
   <body <?php body_class("stretched no-transition") ?>>
@@ -15,11 +14,17 @@
           <div class="col_half nobottommargin">
             <!-- Top Links -->
             <div class="top-links">
-              <ul>
-                <li><a href="<?php echo site_url('/')?>">Home</a></li>
-                <li><a href="<?php echo site_url('/faq')?>">FAQs</a></li>
-                <li><a href="<?php echo site_url('/contact')?>">Contact</a></li>
-              </ul>
+              <!-- Menú de navegación secundario -->
+              <?php
+                if(has_nav_menu("secondary")) {
+                  wp_nav_menu(array(
+                    "theme_location" => "secondary",
+                    "container" => false,
+                    "fallback_cb" => "false",
+                    "depth" => 1,
+                  ));
+                }
+              ?>
             </div>
           </div>
 
@@ -63,10 +68,20 @@
         <div class="container clearfix">
           <!-- Logo -->
           <div id="logo">
-            <a href="<?php echo site_url('/')?>" class="standard-logo">My Custom Theme</a>
+            <?php if(has_custom_logo()) : ?>
+              <?php the_custom_logo()?>
+              <?php else : ?>
+                <a href="<?php echo site_url('/')?>" class="standard-logo"><?php bloginfo("name")?></a>                
+            <?php endif ?>
           </div>
+
+          <!-- Generar los ads mediante el plugin WP Quads -->
           <div class="top-advert">
-            <img src="images/magazine/ad.jpg">
+            <?php
+              if(function_exists("quads_ad")) {
+                echo quads_ad(array("location" => "my_custom_theme_header"));
+              }
+            ?>
           </div>
         </div>
 
