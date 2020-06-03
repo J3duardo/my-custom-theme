@@ -4,9 +4,14 @@
       <div id="copyrights">
         <div class="container clearfix">
           <div class="col_half">
-            Copyright &copy; 2020 All Rights Reserved<br>
+          <?php echo get_theme_mod("footer_copyright_text")?><br>
             <div class="copyright-links">
-              <a href="#">Privacy Policy</a>
+              <?php if(get_theme_mod("footer_tos_page")) : ?>
+                <a href="<?php the_permalink(get_theme_mod("footer_tos_page"))?>">Terms of Use</a>
+              <?php endif ?>
+              <?php if(get_theme_mod("footer_privacy_page")) : ?>
+                <a href="<?php the_permalink(get_theme_mod("footer_privacy_page"))?>">Privacy Policy</a>
+              <?php endif ?>
             </div>
           </div>
           <div class="col_half col_last tright">
@@ -21,8 +26,8 @@
               </a>
             </div>
             <div class="clear"></div>
-            <i class="icon-envelope2"></i> info@email.com <span class="middot">&middot;</span>
-            <i class="icon-headphones"></i> +55-5-5555-5555
+            <i class="icon-envelope2"></i> <?php echo get_theme_mod("email_address_handler")?> <span class="middot">&middot;</span>
+            <i class="icon-headphones"></i> <?php echo get_theme_mod("phone_handler")?>
           </div>
         </div>
       </div>
