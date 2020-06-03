@@ -5,4 +5,6 @@
 
     // Generar links a redes sociales especificadas en el customizer
     social_links($wp_customize);
+    // Generar settings genéricos en el theme customizer
+    misc_customizer_settings($wp_customize);
   }
