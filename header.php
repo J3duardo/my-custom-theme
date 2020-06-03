@@ -32,31 +32,38 @@
             <!-- Top Social -->
             <div id="top-social">
               <ul>
-                <li>
-                  <a href="#" class="si-facebook">
-                    <span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="si-twitter">
-                    <span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="si-instagram">
-                    <span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="tel:+55.55.5555555" class="si-call">
-                    <span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">+55.55.5555555</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="mailto:info@email.com" class="si-email3">
-                    <span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text">info@email.com</span>
-                  </a>
-                </li>
+                <!-- Links a redes sociales especificados en el customizer -->
+                <?php if(get_theme_mod("facebook_handler")) : ?>
+                  <li>
+                    <a href="<?php echo get_theme_mod("facebook_handler")?>" class="si-facebook">
+                      <span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="<?php echo get_theme_mod("twitter_handler")?>" class="si-twitter">
+                      <span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="<?php echo get_theme_mod("instagram_handler")?>" class="si-instagram">
+                      <span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="<?php echo get_theme_mod("phone_handler")?>" class="si-call">
+                      <span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text"><?php echo get_theme_mod("phone_handler")?></span>
+                    </a>
+                  </li>
+                  
+                  <li>
+                    <a href="<?php echo get_theme_mod("email_address_handler")?>" class="si-email3">
+                      <span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text"><?php echo get_theme_mod("email_address_handler")?></span>
+                    </a>
+                  </li>
+                <?php endif ?>     
               </ul>
             </div>
           </div>
@@ -76,13 +83,13 @@
           </div>
 
           <!-- Generar los ads mediante el plugin WP Quads -->
-          <div class="top-advert">
+          <!-- <div class="top-advert">
             <?php
-              if(function_exists("quads_ad")) {
-                echo quads_ad(array("location" => "my_custom_theme_header"));
-              }
+              // if(function_exists("quads_ad")) {
+              //   echo quads_ad(array("location" => "my_custom_theme_header"));
+              // }
             ?>
-          </div>
+          </div> -->
         </div>
 
         <div id="header-wrap">
