@@ -10,6 +10,12 @@
     add_theme_support("title-tag");
     // Generar el logo del sitio (el logo especificado en el customizer)
     add_theme_support("custom-logo");
+    // RSS Feed
+    add_theme_support("automatic-feed-links");
+    // Soporte para HTML5
+    add_theme_support("html5", array("comment-list", "search-form", "gallery", "caption"));
+    // Starter content
+    // add_theme_support("starter-content", array());
 
     // Registrar los ads generados mediante el plugin WP Quads
     if(function_exists("quads_register_ad")) {
