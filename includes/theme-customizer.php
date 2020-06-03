@@ -1,5 +1,12 @@
 <?php
   function my_theme_customize_register($wp_customize) {
+    // Agregar panel en el customizer
+    $wp_customize->add_panel("my-custom-theme", array(
+      "title" => __("My Custom Theme Settings", "my-cutom-theme"),
+      "description" => "<p>My Custom Theme Settings</p>",
+      "priority" => 150
+    ));
+
     // Funcionalidad para generar settings del customizer
     include(get_theme_file_path("/includes/theme-customizer-settings/customizer-settings.php"));
 

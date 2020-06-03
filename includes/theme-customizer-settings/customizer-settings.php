@@ -22,7 +22,8 @@
     // Crear sección en el menú customizer con los nuevos settings correspondientes a las redes sociales
     $wp_customize->add_section("social_section", array(
       "title" => __("Social Settings", "my-custom-theme"),
-      "priority" => 40
+      "priority" => 40,
+      "panel" => "my-custom-theme"
     ));
 
 
@@ -88,7 +89,8 @@
     // Sección
     $wp_customize->add_section("misc_section", array(
       "title" => __("Theme Misc Settings", "my-custom-theme"),
-      "priority" => 40
+      "priority" => 40,
+      "panel" => "my-custom-theme"
     ));
 
 
