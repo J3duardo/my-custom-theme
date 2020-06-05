@@ -16,7 +16,7 @@
               ?>
 
               <!-- Single Post -->
-              <div id="post-<?php th_ID()?>" <?php post_class("single-post nobottommargin")?>>
+              <div id="post-<?php the_ID()?>" <?php post_class("single-post nobottommargin")?>>
                 <div class="entry clearfix">
                   <!-- Título del post -->
                   <div class="entry-title">
