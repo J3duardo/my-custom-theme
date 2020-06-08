@@ -39,25 +39,33 @@
                       <span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span>
                     </a>
                   </li>
+                <?php endif ?>
 
+                <?php if(get_theme_mod("twitter_handler")) : ?>
                   <li>
                     <a href="<?php echo get_theme_mod("twitter_handler")?>" class="si-twitter">
                       <span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span>
                     </a>
                   </li>
+                <?php endif ?>
 
+                <?php if(get_theme_mod("instagram_handler")) : ?>
                   <li>
                     <a href="<?php echo get_theme_mod("instagram_handler")?>" class="si-instagram">
                       <span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span>
                     </a>
                   </li>
+                <?php endif ?>
 
+                <?php if(get_theme_mod("phone_handler")) : ?>
                   <li>
                     <a href="<?php echo get_theme_mod("phone_handler")?>" class="si-call">
                       <span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text"><?php echo get_theme_mod("phone_handler")?></span>
                     </a>
                   </li>
+                <?php endif ?>
 
+                <?php if(get_theme_mod("email_address_handler")) : ?>
                   <li>
                     <a href="<?php echo get_theme_mod("email_address_handler")?>" class="si-email3">
                       <span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text"><?php echo get_theme_mod("email_address_handler")?></span>
