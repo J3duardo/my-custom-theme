@@ -1,5 +1,7 @@
 <?php get_header() ?>
 
+<!-- Archive de posts relacionados por fecha -->
+
 <!-- Título de la página date arhive -->
 <section id="page-title">
   <div class="container clearfix">

@@ -54,6 +54,7 @@
                               <textarea name="comment" cols="58" rows="7" class="sm-form-control"></textarea>
                             </div>',
         // Información sobre el comentario
+        // Estos campos corresponden a la información que el usuario debe completar para poder agregar el comentario en caso de no estar logueado
         "fields" => array(
           "author" => '<div class="col_one_third">
                         <label>' . __("Name", "my-custom-theme") . '</label>

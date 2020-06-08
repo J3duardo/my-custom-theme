@@ -50,7 +50,7 @@
                   <div class="entry-content notopmargin">
                     <?php the_content() ?>
 
-                    <!-- Paginar el post cuando se emplean page breaks en el editor para dividirlo múltiples partes -->
+                    <!-- Paginar el post cuando se emplean page breaks en el editor para dividirlo en múltiples partes -->
                     <?php
                       $defaults = array(
                         "before" => "<p class='text-center'>" . __("Pages: ", "my-custom-theme"),
@@ -87,13 +87,15 @@
                     </strong>
                   </div>
                   <div class="card-body">
+                    <!-- Avatar del autor -->
                     <div class="author-image">
-                      <!-- Avatar del autor -->
                       <?php echo get_avatar($author_ID, 90, "", false, array("class" => "img-circle")) ?>
-                      <!-- Biografía del autor. Se usa la función nl2br() para hacerla más legible -->
                     </div>
+                    <!-- Biografía del autor. Se usa la función nl2br() para hacerla más legible en caso de que el texto se muestre en múltiples líneas -->
+                    <div>
                       <?php echo nl2br(get_the_author_meta("description"))?>
                     </div>
+                  </div>
                 </div>
                 <div class="line"></div>
 
