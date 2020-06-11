@@ -11,9 +11,7 @@
 <section id="content">
   <div class="content-wrap">
     <div class="container clearfix">
-      <!-- Contenido del post -->
       <div class="postcontent nobottommargin clearfix">
-
         <!-- Cuadro de búsqueda -->
         <div class="col_full card">
           <div class="card-header"><?php _e("What are you searhing for today?", "my_custom_theme")?></div>

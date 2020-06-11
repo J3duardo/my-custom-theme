@@ -2,7 +2,7 @@
   <!-- Imagen del post -->
   <?php if(has_post_thumbnail()) : ?>
     <div class="entry-image">
-      <a href="#">
+      <a href="<?php echo get_the_post_thumbnail_url(null, "full") ?>" target="_blank">
         <?php
           the_post_thumbnail("full", array(
             "class" => "image_fade"
@@ -32,7 +32,7 @@
     </li>
     <li>
       <i class="icon-folder-open"></i>
-      <?php the_category(" ") ?>
+      <?php the_category(", ") ?>
     </li>
     <li>
       <a href="<?php the_permalink()?>">
@@ -42,7 +42,7 @@
     </li>
   </ul>
 
-  <!-- Borón read more -->
+  <!-- Botón read more -->
   <div class="entry-content">
     <?php the_excerpt()?>
     <a href="<?php the_permalink()?>" class="more-link">Read More</a>

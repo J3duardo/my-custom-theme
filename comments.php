@@ -1,5 +1,5 @@
 <?php
-  // Chequear si el usuario está autenticado para permitirle comentar el post
+  // Chequear si el post requiere contraseña para poder visualizarlo y si el usuario ha porporcionado la misma
   if(post_password_required()) {
     return;
   }

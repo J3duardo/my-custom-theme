@@ -2,6 +2,7 @@
   // Declarar template para visualizar las páginas en full width sin el side bar
   /*
     Template Name: Full Width Page
+    Template Post Type: post, page
   */
 
   get_header();
@@ -36,7 +37,7 @@
             <div class="entry-image">
             <?php if(has_post_thumbnail()) : ?>
               <div class="entry-image">
-                <a href="#">
+                <a href="<?php echo get_the_post_thumbnail_url(null, "full") ?>" target="_blank">
                   <?php the_post_thumbnail("full")?>
                 </a>
               </div>

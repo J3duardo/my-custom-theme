@@ -77,6 +77,14 @@
     $wp_customize->add_setting("header_show_cart", array(
       "default" => "Yes"
     ));
+    // Mostrar/ocultar slider del header con los posts populares
+    $wp_customize->add_setting("show_header_popular_posts", array(
+      "default" => false
+    ));
+    // Modificar el título del slider del header con los posts populares
+    $wp_customize->add_setting("popular_posts_widget_title", array(
+      "default" => "Breaking News"
+    ));
     // Modificar el texto copiryght del footer
     $wp_customize->add_setting("footer_copyright_text", array(
       "default" => "Copyright &copy; 2020 All Rights Reserved"
@@ -88,15 +96,7 @@
     // Seleccionar url de la página privacy policy en el footer
     $wp_customize->add_setting("footer_privacy_page", array(
       "default" => 0
-    ));
-    // Mostrar/ocultar slider del header con los posts populares
-    $wp_customize->add_setting("show_header_popular_posts", array(
-      "default" => false
-    ));
-    // Modificar el título del slider del header con los posts populares
-    $wp_customize->add_setting("popular_posts_widget_title", array(
-      "default" => "Breaking News"
-    ));
+    ));    
 
 
     // Sección del customizer
@@ -126,18 +126,6 @@
         "yes" => "Yes"
       )
     )));
-    $wp_customize->add_control(new WP_Customize_Control($wp_customize, "footer_show_copyright_text", array(
-      "label" => __("Footer Copyright Text", "my-custom-theme"),
-      "section" => "misc_section",
-      "settings" => "footer_copyright_text",
-      "type" => "text"
-    )));
-    $wp_customize->add_control(new WP_Customize_Control($wp_customize, "footer_set_tos_page", array(
-      "label" => __("Footer TOS Page", "my-custom-theme"),
-      "section" => "misc_section",
-      "settings" => "footer_tos_page",
-      "type" => "dropdown-pages"
-    )));
     $wp_customize->add_control(new WP_Customize_Control($wp_customize, "header_popular_posts", array(
       "label" => __("Header Popular Posts Widget", "my-custom-theme"),
       "section" => "misc_section",
@@ -152,5 +140,17 @@
       "section" => "misc_section",
       "settings" => "popular_posts_widget_title",
       "type" => "text"
+    )));
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, "footer_show_copyright_text", array(
+      "label" => __("Footer Copyright Text", "my-custom-theme"),
+      "section" => "misc_section",
+      "settings" => "footer_copyright_text",
+      "type" => "text"
+    )));
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, "footer_set_tos_page", array(
+      "label" => __("Footer TOS Page", "my-custom-theme"),
+      "section" => "misc_section",
+      "settings" => "footer_tos_page",
+      "type" => "dropdown-pages"
     )));
   }
