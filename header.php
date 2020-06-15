@@ -91,13 +91,13 @@
           </div>
 
           <!-- Generar los ads mediante el plugin WP Quads -->
-          <!-- <div class="top-advert">
+          <div class="top-advert">
             <?php
-              // if(function_exists("quads_ad")) {
-              //   echo quads_ad(array("location" => "my_custom_theme_header"));
-              // }
+              if(function_exists("quads_ad")) {
+                echo quads_ad(array("location" => "my_custom_theme_header"));
+              }
             ?>
-          </div> -->
+          </div>
         </div>
 
         <div id="header-wrap">
